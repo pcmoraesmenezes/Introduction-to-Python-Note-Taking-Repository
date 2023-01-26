@@ -1,0 +1,167 @@
+#Na função print, é dado como padrão a separação de elementos atraves do espaço, entretanto é possivel atribuir uma separação desejada por exemplo, print(12,34, sep='abacate')
+#A saida será 12abacate34
+#Por padrão o final da linha é dada por \r\n, ou seja quebra de linha, pode ser associado com a linguagem C
+#Comando type: retorna o tipo, por exemplo print(type(1)), retornará int
+#E possivel truncar uma divisão utilizando // por exemplo 4//3 retornará 1
+# ----------------- Formatações de strings -----------------------
+é possível atribuir strings a uma variavel por exemplo:
+nome = 'Paulo César Moraes de Menezes'
+entretanto se eu utilizar a seguinte frase:
+pergunta = 'O seu nome é:'
+a saída não será "O seu nome é Paulo..."
+Entretanto é possivel realizar o seguinte comando para contornar esse problema
+pergunta = f'O seu {nome} é:"
+é assim receberemos a saída desejada
+A formatação de ponto flutuante é semelhante a forma de C
+IMC = 29.6347778
+print(f"O Seu IMC é {IMC:.3f})
+será exibido apenas 3 casas decimais 
+é possivel usar os esquemas de %d, %s, %i na formatação do texto, igual em C
+por exemplo:
+Nome = 'paulo'
+idade = 18
+print('%s, você possuí %d anos de idade' %(Nome, idade)
+para adicionar espaçoes entre os textos é diferente da linguagem C, utiliza-se a seguinte conotação:
+variavel = 'abc'
+print(f'{variavel: >10'}) -----Ira printar dez caracteres a direita
+print(f'{variavel: <10'})-----Irá printar dez casas a esquerda
+print(f'{variavel: ^10'})-----Irá printar no centro(o mais possivel)
+é possivel printar coisas especificas de uma variavel, por exemplo:
+var = 'ola mundo'
+print(var[0]) terá como saída o 'o'
+é possivel tambem printar 'distancias' por exemplo
+print(var[0:4]) terá como saída 'ola', ele irá até o indice 4, mas não o incluíra
+caso não tenha omissão apos o ':', ele pegará todo a string
+exemplo: print(var[4:]) terá como saída mundo
+é possivel omitir o inicio também, print(var[:4], irá até ola
+função len serve para mostrar a quantidade de caracteres de uma string, variavel entre outras formas de texto
+outra informação é que por exemplo var[0:4:1] é a mesma coisa que var[0:4], isso porque os dados vão de um em um como padrão
+é possivel inverter uma string de maneira bem simples utilizando print(var[-1::-1]
+Funções try e except, são funções parecidas com o if e else, mas não precisam de condições, exemplo
+numero1 = input("Digite um numero")
+try:
+    numero = float(numero1)
+    print("Isso é um numero")
+except:
+    print("Isso não é um numero")
+É possível acessar a "identidade" de uma variavel em python, semelhante a ponteiros na linguagem C, o comando é id(), exemplo:
+var1 = 'a'
+print(id(var1))
+var1 = none ### Esse trecho de codigo pode ser utilizado para marcar "bandeira" para saber se o codigo executou determinada area
+é possivel usar o is seguido do none, is none para saber se ainda é falso a afirmação
+é possivel complementar com o not, que serve para inverter a operação
+o comando break em uma repetição serve para encerrar a estrutura de repetição
+o continue serve para ir ao começo do laço, por exemplo
+i = 0
+while(i <10):
+	print(i)
+	if(i == 4):
+		break
+	else:
+		continue
+função range()
+range(numero de começo, numero final, andar de quantos em quantos, o padrão é um) EX:
+for i in range(1,10):
+	print(i)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+------------ Listas -------------
+Lista de coisas
+-Array, ou matriz
+-Tipo mutado
+type = list
+sintaxe:
+	lista = list()
+		ou
+	lista[]
+print(bool(lista))
+se a lista estiver vazia, a saída será false
+lista[1,'abc', bool, 1.2, []] --- É possivel ter uma lista dentro de outra lista
+as listas funcionam através de indices, por exemplo no indice 0 da lista acima, teremos [1], e por ai vai
+é possivel checar o tipo de um valor especifico dentro de uma lista, exemplo typle(lista[0])
+#Função upper() serve para fazer as letras ficarem maiusculas, exemplo:
+print(lista[1].upper())
+a saída será 'ABC'
+É póssivel alterar os valores da lista, por isso a lista é considerada mutavel, se baseando na lista acima, por exemplo:
+lista[0] = 2
+lista[1] = "abacate"
+lista[2] = True
+etc...
+é possivel jogar o valor de uma variavel em uma lista e vice versa
+para apagar o indice de uma lista usa-se o comando del
+exemplo del lista[0], apagara o indice 0, após apagar um indice o python irá reestruturar a lista novamente, então se você apagar o indice
+do começo da lista, a lista irá mover para a esquerda
+para adicionar mais coisas a lista usa-se o comando .append, esse comando adiciona no final da lista
+lista.append ("coe")
+é interessante esse comando para o python pois por ele adicionar ao final da lista, você so tem que aumentar um indice, não tendo que reestruturar toda a lista
+o comando .pop remove o ultimo elemento da lista
+lista.pop()
+é possivel ver o que foi removido utilizando uma variavel auxiliar
+aux = lista.pop()
+print(aux)
+o comando insert(), serve para adicionar um elemento a sua lista, lista(o primeiro elemento serve para informa a posição que deseja adicionar, o que você deseja adcionar)
+exemplo
+lista.insert(0,5)
+não é possivel inserir um indice maior do que o atual, exemplo , se a sua lista tem tamanho dois, e sabendo que o indice começa com zero
+não é possivel adicionar um elemento no indice 4, ele irá adicionar no ultimo indice da lista
+o comando clear, serve para limpar a lista, a sintaxe é bem simples, lista.clear()
+é possivel unir duas listas, por exemplo
+listaA =[1,2,3]
+listaB =[3,4,5]
+listaC = listaA +listaB
+print(listaC) = [1,2,3,4,5]
+#Metodo extend
+listaA.extend(listaB)
+ele irá estender a lista A para a lista B
+ele não irá retornar nada
+#Em dados mutaveis, as variaveis que apontam recebem o endereço da variavel, por exemplo
+var1["joao", "jose"]
+var2 = var1
+var1[0] = "jose"
+print(var2) = "joao", "jose"
+entretando é possivel copiar uma lista :)
+var2 = var1.coppy()
+o for funciona com iteraveis, então ele funciona strings(letra por letra)
+a lista tambem é um iteravel então é possivel acessar elemento por elemento da lista
+lista1 = ["joao", "jose" "joaquim" "junia"]
+for i in lista1:
+	print(lista[i])
+como dito anteriormente, é possivel fazer uma variavel receber um valor de uma lista
+nome1, nome2, nome3 = ['paulo', 'jose', 'andre']
+entretanto caso o numero de variaveis seja menor q o numero de termos essa operação da errada
+ai surge o *
+nome1, * resto = ['paulo', 'jose', 'andre']
+é possivel substituir a variavel resto pela seguinte sintaxe
+nome1*_
+---------Tuplas-----------
+->É uma lista imutavel!
+a sintaxe pode ser entre colchetes , ou entre parenteses
+tupla = ("abacate", "josé")
+print(type(tupla))
+função round()
+round(numero que deseja arredondar, pode ser uma variavel, qtd de casas decimais)
+ex:
+var1 = 5/3
+print(round(var1, 2)) = 1.67
+função split()
+essa função quebra as interrupções das strings como por exemplo os espaços
+frase = 'Subi no pé de manga pra colher café'
+frase_sep = frase.split
+print(frase_sep) = ['Subi', 'no', 'pé', 'de', 'manga', 'pra', 'colher' , 'café']
+note que foi gerado uma lista
+porém é possivel passar parametro para essa função, exemplo
+var = 'fui ali, chegando lá, voltei'
+frase_sep = var.sep(',')
+irá separar somente as virgulas
+função strip() corta o espaço, rstrip() corta o espaço da direita
+função join() serve para unir strings, exemplo
+a = 'abc'
+frase = '-'.join(a)
+a saída será a-b-c
